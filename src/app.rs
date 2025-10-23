@@ -1,8 +1,8 @@
 use leptos::prelude::*;
-use leptos_meta::{provide_meta_context, MetaTags, Stylesheet, Title};
+use leptos_meta::{MetaTags, Stylesheet, Title, provide_meta_context};
 use leptos_router::{
+    StaticSegment, WildcardSegment,
     components::{Route, Router, Routes},
-    StaticSegment,
 };
 
 pub fn shell(options: LeptosOptions) -> impl IntoView {
@@ -41,6 +41,7 @@ pub fn App() -> impl IntoView {
             <main>
                 <Routes fallback=|| "Page not found.".into_view()>
                     <Route path=StaticSegment("") view=HomePage/>
+                    <Route path=WildcardSegment("any") view=NotFound/>
                 </Routes>
             </main>
         </Router>
@@ -57,5 +58,13 @@ fn HomePage() -> impl IntoView {
     view! {
         <h1>"Welcome to Leptos!"</h1>
         <button on:click=on_click>"Click Me: " {count}</button>
+    }
+}
+
+/// 404 - Not Found
+#[component]
+fn NotFound() -> impl IntoView {
+    view! {
+        <h1>"Not Found"</h1>
     }
 }
