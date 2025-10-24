@@ -1,7 +1,7 @@
 use leptos::prelude::*;
 use leptos_meta::{MetaTags, Stylesheet, Title, provide_meta_context};
 use leptos_router::{
-    StaticSegment, WildcardSegment,
+    StaticSegment,
     components::{Route, Router, Routes},
 };
 
@@ -39,9 +39,8 @@ pub fn App() -> impl IntoView {
         // content for this welcome page
         <Router>
             <main>
-                <Routes fallback=|| "Page not found.".into_view()>
+                <Routes fallback=NotFound>
                     <Route path=StaticSegment("") view=HomePage/>
-                    <Route path=WildcardSegment("any") view=NotFound/>
                 </Routes>
             </main>
         </Router>
