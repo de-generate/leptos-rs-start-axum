@@ -1,8 +1,8 @@
 use leptos::prelude::*;
 use leptos_meta::{MetaTags, Stylesheet, Title, provide_meta_context};
 use leptos_router::{
-    StaticSegment,
     components::{Route, Router, Routes},
+    path,
 };
 
 pub fn shell(options: LeptosOptions) -> impl IntoView {
@@ -40,7 +40,7 @@ pub fn App() -> impl IntoView {
         <Router>
             <main>
                 <Routes fallback=NotFound>
-                    <Route path=StaticSegment("") view=HomePage/>
+                    <Route path=path!("/") view=HomePage/>
                 </Routes>
             </main>
         </Router>

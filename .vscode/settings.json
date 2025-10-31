@@ -12,6 +12,7 @@
     "files.associations": {
         "*.rs": "rust"
     },
+    "rust-analyzer.cargo.features": "all",
     "tailwindCSS.includeLanguages": {
         "*.rs": "html",
         "rust": "html"
